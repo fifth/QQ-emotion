@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>QQ emotion for Quill</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				font-family: "Microsoft YaHei";
+				font-size: 20px;
+			}
+			.history {
+				/*position: absolute;*/
+				float: left;
+				width: 150px;
+				height: 150px;
+				background-repeat: no-repeat;
+				background-position: center;
+				cursor: pointer;
+			}
+			.history:hover {
+				box-shadow: 1px 1px 10px #666666;
+			}
+			p {
+				text-align: center;
+			}
+			.today {
+				width: 150px;
+				height: 150px;
+				margin: auto;
+				background-repeat: no-repeat;
+				background-position: center;
+				border-style: solid;
+				border-width: 1px;
+				border-color: #ffffff;
+			}
+			.today:hover {
+				border-color: #dddddd;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			today=new Date();
+			//一天有86 400 000毫秒
+		</script>
+		<div id="today">
+			<script type="text/javascript">
+				todayName=today.getFullYear()+"-"+(today.getMonth()-(-1))+"-"+today.getDate();
+				txt="<br/><p>For Quill</p><p>Today is ";
+				txt+=today.getFullYear();
+				txt+="-";
+				txt+=today.getMonth()-(-1);
+				txt+="-";
+				txt+=today.getDate();
+				txt+="</p>";
+				txt+="<p>Today's emotion</p><br/>";
+				txt+="<div class='today' title=";
+				txt+=todayName;
+				txt+=" style='background-image: url(";
+				txt+='"./emotion/';
+				txt+=todayName;
+				txt+='.gif");';
+				txt+="' id='";
+				txt+=todayName;
+				txt+="'>";
+				txt+="</div>";
+				document.write(txt);
+			</script>
+		</div>
+		<div id="history">
+			<br/>
+			<p>here are the emotions in history(click and download if your browser is chrome or firefox):</p>
+			<script type="text/javascript">
+				begin=Date.parse("Dec 12, 2014");
+				var days=Math.floor((today.getTime()-begin)/86400000);
+				for (i=0; i<days; i++) {
+					thatDay=new Date();
+					thatDay.setTime(begin);
+					thatDay.setTime(begin+i*86400000);
+					thatDayName=thatDay.getFullYear()+"-"+(thatDay.getMonth()-(-1))+"-"+thatDay.getDate();
+					cut=Math.floor(window.innerWidth/150);
+					// txt="<div class='history' style='left: ";
+					// txt+=(i-Math.floor(i/cut)*cut)*150;
+					// txt+='px; top: ';
+					// txt+=(Math.floor(i/cut))*150;
+					// txt+='px; background-image: url("./emotion/';
+					txt="<a href='./emotion/"
+					txt+=thatDayName;
+					txt+=".gif' download=";
+					txt+=thatDayName;
+					txt+="><div class='history' title=";
+					txt+=thatDayName;
+					txt+=" style='background-image: url(";
+					txt+='"./emotion/';
+
+					txt+=thatDayName;
+					txt+='.gif");';
+					txt+="' id='";
+					txt+=thatDayName;
+					txt+="'>";
+					txt+="</div></a>";
+					document.write(txt);
+				}
+			</script>
+		</div>
+	</body>
+</html>
