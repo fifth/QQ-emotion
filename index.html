@@ -45,13 +45,17 @@
 		</script>
 		<div id="today">
 			<script type="text/javascript">
-				todayName=today.getFullYear()+"-"+(today.getMonth()-(-1))+"-"+today.getDate();
+				//todayName=today.getFullYear()+"-"+(today.getMonth()-(-1))+"-"+today.getDate();
+				todayName="2015-1-15";
 				txt="<br/><p>For Quill</p><p>Today is ";
-				txt+=today.getFullYear();
+				//txt+=today.getFullYear();
+				txt+='2015';
 				txt+="-";
-				txt+=today.getMonth()-(-1);
+				//txt+=today.getMonth()-(-1);
+				txt+='1';
 				txt+="-";
-				txt+=today.getDate();
+				//txt+=today.getDate();
+				txt+='15'
 				txt+="</p>";
 				txt+="<p>Today's emotion</p><br/>";
 				txt+="<div class='today' title=";
@@ -72,7 +76,8 @@
 			<p>here are the emotions in history(click and download if your browser is chrome or firefox):</p><br/>
 			<script type="text/javascript">
 				begin=Date.parse("Dec 12, 2014");
-				var days=Math.floor((today.getTime()-begin)/86400000);
+				//var days=Math.floor((today.getTime()-begin)/86400000);
+				var days=Math.floor((Date.parse("Jan 15, 2015")-begin)/86400000);
 				for (i=0; i<days; i++) {
 					thatDay=new Date();
 					thatDay.setTime(begin);
